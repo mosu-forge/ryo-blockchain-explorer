@@ -2419,7 +2419,7 @@ public:
                     crypto::hash payment_id   = null_hash;
                     crypto::hash8 payment_id8 = null_hash8;
 
-                    get_payment_id(tx_cd.extra, payment_id, payment_id8);
+                    get_payment_id(tx_cd, payment_id, payment_id8);
 
                     // payments id. both normal and encrypted (payment_id8)
                     string pid_str   = REMOVE_HASH_BRAKETS(fmt::format("{:s}", payment_id));
@@ -2428,7 +2428,7 @@ public:
 
                     mstch::map tx_cd_data {
                             {"no_of_sources"      , static_cast<uint64_t>(no_of_sources)},
-                            {"use_rct"            , tx_cd.use_rct},
+                            {"use_rct"            , false},
                             {"change_amount"      , xmreg::xmr_amount_to_str(tx_change.amount)},
                             {"has_payment_id"     , (payment_id  != null_hash)},
                             {"has_payment_id8"    , (payment_id8 != null_hash8)},
