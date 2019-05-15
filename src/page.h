@@ -5552,6 +5552,8 @@ public:
         j_info["tx_pool_size"]        = MempoolStatus::mempool_no.load();
         j_info["tx_pool_size_kbytes"] = MempoolStatus::mempool_size.load();
 
+        j_info["server_time"] = std::time(nullptr);
+
         j_data = j_info;
 
         j_response["status"]  = "success";
